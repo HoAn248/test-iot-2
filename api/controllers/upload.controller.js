@@ -10,6 +10,12 @@ const uploadController = {
         res.status(500).json({Message: err.message});
 
        }
+       if(req.query.data != undefined){
+        const upload = new IMG({img: req.query.data})
+        await upload.save();
+       }
+       console.log(req.query.data);
+       res.status(500)
     },
     createUpload: async (req, res)=>{
         try{
